@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Best AI Tools</title>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      /* Sci-fi background: Deep blue/black gradient with subtle pattern potential */
+      background: linear-gradient(135deg, #0a0a20, #1a1a35, #0a0a20);
+      color: #d0d0d0; /* Lighter grey text for contrast */
+      padding: 40px 20px;
+    }
+    h1 {
+      /* Keep Flexbox, font-family */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3.6em; /* <-- Slightly adjusted font size for larger screens to fit larger logo */
+      margin-bottom: 30px; /* Keep margin */
+      color: #e0e0e0; /* Near white title */
+      /* Subtle, sharp text shadow */
+      text-shadow: 0 0 5px rgba(224, 224, 224, 0.3), 0 0 10px rgba(0, 255, 255, 0.3);
+      font-family: 'Changa', sans-serif;
+      white-space: nowrap;
+      overflow: hidden; /* Keep hidden to prevent wrapping */
+      text-overflow: ellipsis; /* Keep ellipsis just in case of rare overflow */
+      max-width: 100%; /* Ensure it respects container width */
+      /* Add a pseudo-element for a subtle underline effect */
+      position: relative;
+      padding-bottom: 15px; /* Make space for the underline */
+      /* Ensure image is on the left - achieved by order in HTML and flex */
+    }
+     h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%; /* Width of the underline */
+      height: 1px;
+      background: linear-gradient(to right, transparent, #00ffff, transparent); /* Gradient underline */
+    }
+    .title-logo {
+      /* Increased size */
+      vertical-align: middle;
+      height: 120px; /* <-- Increased logo height for larger screens */
+      margin-right: 20px; /* Increased space between logo and text */
+      /* Adjusted filter for a subtle, matching glow */
+      filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.4));
+      flex-shrink: 0; /* Prevent shrinking */
+      /* Position is handled by flexbox order */
+    }
+    .category {
+      margin-bottom: 50px; /* Keep margin */
+    }
+    h2 {
+      font-size: 2em; /* Keep size */
+      /* Sci-fi header style */
+      border-left: 3px solid #39ff14; /* Green border */
+      padding-left: 15px; /* Keep padding */
+      margin-bottom: 20px; /* Increased margin */
+      color: #39ff14; /* Green category title color */
+      text-shadow: none; /* No text shadow */
+      /* Add a subtle bottom border */
+      border-bottom: 1px solid rgba(57, 255, 20, 0.3);
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      /* Sci-fi data block look */
+      background: rgba(20, 20, 30, 0.7); /* Very dark blue/grey background */
+      border: 1px solid rgba(0, 255, 255, 0.2); /* Subtle cyan border */
+      border-radius: 4px; /* Sharper corners */
+      margin: 10px 0; /* Keep margin */
+      padding: 15px; /* Keep padding */
+      display: flex; /* Keep flexbox on li to align logo and description */
+      align-items: center; /* Keep center alignment */
+      gap: 15px; /* Keep gap */
+      /* Modified box-shadow: Added a subtle border glow */
+      box-shadow:
+        0 0 5px rgba(0, 255, 255, 0.4), /* Subtle cyan glow around the border */
+        4px 4px 8px rgba(0, 0, 0, 0.5),  /* Original depth shadow (bottom-right) */
+        -4px -4px 8px rgba(50, 50, 70, 0.2); /* Original depth shadow (top-left) */
+      transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow to transition */
+      /* Optional pulsing animation */
+      animation: pulse-border 4s infinite ease-in-out; /* Keep pulse animation if desired */
+    }
+    li:hover {
+      transform: none; /* No transform lift */
+      background: rgba(30, 30, 45, 0.9); /* Slightly lighter background on hover */
+      border-color: #00ffff; /* Highlight border with brighter cyan on hover */
+      /* Keep the stronger glow shadow on hover */
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.6); /* Stronger glow shadow on hover */
+    }
+    /* Style for the A tag wrapping the logo */
+    li > a {
+        display: flex; /* Make the logo link a flex container to vertically center the image */
+        align-items: center; /* Center the image vertically */
+        flex-shrink: 0; /* Prevent the logo link from shrinking */
+        /* Remove default link styling from the logo wrapper */
+        color: inherit;
+        text-decoration: none;
+    }
+    /* Style for the text link inside the description */
+    .description a {
+      color: #00ffff; /* Changed link color to cyan */
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: none; /* No text shadow */
+    }
+    .description a:hover {
+      text-decoration: underline;
+      color: #39ff14; /* Changed hover color to green */
+      text-shadow: none; /* No text shadow on hover */
+    }
+    .logo {
+      width: 40px; /* Reverted logo size */
+      height: 40px;
+      border-radius: 4px; /* Sharper corners */
+      box-shadow: none; /* No logo box-shadow */
+      border: 1px solid rgba(0, 255, 255, 0.4); /* Added subtle cyan border to logo */
+      background-color: rgba(0, 0, 0, 0.3); /* Slightly darker background for logo container */
+      padding: 3px; /* Add padding inside border */
+      display: block; /* Ensure image doesn't have extra space below it */
+    }
+    .description {
+      flex-grow: 1;
+      font-size: 1em; /* Reverted description font size */
+      line-height: 1.5; /* Adjusted line height */
+      color: #d0d0d0; /* Description text color (applied to the div) */
+    }
+    /* Pulsing animation definition (optional Sci-Fi touch) */
+    @keyframes pulse-border {
+      0%, 100% { border-color: rgba(0, 255, 255, 0.2); }
+      50% { border-color: rgba(0, 255, 255, 0.5); }
+    }
+
+    /* Media query for smaller screens */
+    @media screen and (max-width: 600px) {
+        h1 {
+            font-size: 2.5em; /* Adjusted font size for mobile to fit larger logo */
+            /* Align items center is already on h1, handles vertical alignment */
+        }
+         .title-logo {
+            height: 130px; /* Increased logo height for mobile */
+            margin-right: 15px; /* Adjusted margin for mobile */
+        }
+        h2 {
+            font-size: 1.6em; /* Slightly smaller category titles */
+        }
+        li {
+            padding: 10px; /* Reduced padding for list items */
+        }
+        .logo {
+            width: 30px; /* Slightly smaller item logos */
+            height: 30px;
+            padding: 2px; /* Adjusted padding for smaller size */
+        }
+        .description {
+            font-size: 0.95em; /* Slightly smaller description text */
+        }
+    }
+
+  </style>
+</head>
+<body>
+  <h1>
+    <img class="title-logo" src="https://i.imgur.com/S1ntXEI.png" alt="AI Icon">
+    Best AI Tools
+  </h1>
+
+  <div class="category">
+    <h2>📝 Text AI</h2>
+    <ul>
+      <li>
+        <a href="https://chat.openai.com/chat" target="_blank"> <img class="logo" src="https://chat.openai.com/favicon.ico" alt="ChatGPT logo">
+        </a>
+        <div class="description">
+          <a href="https://chat.openai.com/chat" target="_blank">ChatGPT</a><br>
+          Conversational AI for writing, coding, and problem‑solving with real‑time interaction.
+          </div>
+      </li>
+      <li>
+         <a href="https://aistudio.google.com/prompts/new_chat" target="_blank"> <img class="logo" src="https://i.imgur.com/4KFSCa3.png" alt="Gemini logo">
+         </a>
+        <div class="description">
+          <a href="https://aistudio.google.com/prompts/new_chat" target="_blank">Gemini</a><br>
+          Google's advanced AI assistant for multimodal conversations, coding, and analysis.
+        </div>
+      </li>
+      <li>
+        <a href="https://claude.ai" target="_blank"> <img class="logo" src="https://claude.ai/favicon.ico" alt="Claude logo">
+        </a>
+        <div class="description">
+          <a href="https://claude.ai" target="_blank">Claude</a><br>
+          AI assistant focused on long‑context reasoning, summaries, and creative writing.
+        </div>
+      </li>
+      <li>
+         <a href="https://www.perplexity.ai" target="_blank"> <img class="logo" src="https://www.perplexity.ai/favicon.ico" alt="Perplexity logo">
+         </a>
+        <div class="description">
+          <a href="https://www.perplexity.ai" target="_blank">Perplexity</a><br>
+          AI-powered search engine that provides accurate answers with real-time web sources.
+        </div>
+      </li>
+      <li>
+         <a href="https://manus.im/app" target="_blank"> <img class="logo" src="https://manus.im/favicon.ico" alt="Manus logo">
+         </a>
+        <div class="description">
+          <a href="https://manus.im/app" target="_blank">Manus</a><br>
+          Autonomous AI agent for complex tasks, research, coding, and creative projects.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="category">
+    <h2>🖼️ Image AI</h2>
+    <ul>
+      <li>
+        <a href="https://playground.bfl.ai/image/generate" target="_blank"> <img class="logo" src="https://i.ibb.co/PGsKm1k1/channels4-profile.jpg" alt="Playground AI logo">
+        </a>
+        <div class="description">
+          <a href="https://playground.bfl.ai/image/generate" target="_blank">Playground AI</a><br>
+          Versatile AI image generator with multiple models and a focus on creative workflows.
+        </div>
+      </li>
+      <li>
+         <a href="https://app.leonardo.ai" target="_blank"> <img class="logo" src="https://leonardo.ai/favicon.ico" alt="Leonardo AI logo">
+         </a>
+        <div class="description">
+          <a href="https://app.leonardo.ai" target="_blank">Leonardo AI</a><br>
+          Artistic AI tool for character design, environments, and high‑quality illustrations.
+        </div>
+      </li>
+       <li>
+         <a href="https://ideogram.ai/" target="_blank"> <img class="logo" src="https://ideogram.ai/favicon.ico" alt="Ideogram logo">
+         </a>
+        <div class="description">
+          <a href="https://ideogram.ai/" target="_blank">Ideogram</a><br>
+          AI tool specializing in image generation with accurate text rendering.
+        </div>
+      </li>
+      <li>
+        <a href="https://recraft.ai/" target="_blank"> <img class="logo" src="https://i.imgur.com/2fdmxUy.png" alt="Recraft logo">
+        </a>
+        <div class="description">
+          <a href="https://recraft.ai/" target="_blank">Recraft</a><br>
+          AI design tool for generating vector and raster illustrations from text.
+        </div>
+      </li>
+       <li>
+         <a href="https://piclumen.com/app/image-generator/explore" target="_blank"> <img class="logo" src="https://www.piclumen.com/favicon.ico" alt="Piclumen logo">
+         </a>
+        <div class="description">
+          <a href="https://piclumen.com/app/image-generator/explore" target="_blank">Piclumen</a><br>
+          AI image generator producing photorealistic and artistic visuals from text prompts.
+        </div>
+      </li>
+       <li>
+         <a href="https://www.gentube.app/" target="_blank"> <img class="logo" src="https://www.gentube.app/favicon.ico" alt="Gentube logo">
+         </a>
+        <div class="description">
+          <a href="https://www.gentube.app/" target="_blank">Gentube</a><br>
+          AI tool to generate short animated images and videos from text prompts.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="category">
+    <h2>🎶 Music AI</h2>
+    <ul>
+      <li>
+        <a href="https://suno.ai" target="_blank"> <img class="logo" src="https://suno.ai/favicon.ico" alt="Suno logo">
+        </a>
+        <div class="description">
+          <a href="https://suno.ai" target="_blank">Suno</a><br>
+          Turn text into full musical tracks with vocals and instruments using AI.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.udio.com" target="_blank"> <img class="logo" src="https://www.udio.com/favicon.ico" alt="Udio logo">
+        </a>
+        <div class="description">
+          <a href="https://www.udio.com" target="_blank">Udio</a><br>
+          Generate and remix songs easily with high‑fidelity voice and style control.
+        </div>
+      </li>
+      <li>
+        <a href="https://elevenlabs.io/" target="_blank"> <img class="logo" src="https://elevenlabs.io/favicon.ico" alt="Eleven Labs logo">
+        </a>
+        <div class="description">
+          <a href="https://elevenlabs.io/" target="_blank">Eleven Labs</a><br>
+          High-quality AI voice generation, text-to-speech, and audio tools.
+        </div>
+      </li>
+      <li>
+        <a href="https://mureka.ai/" target="_blank"> <img class="logo" src="https://mureka.ai/favicon.ico" alt="Mureka logo">
+        </a>
+        <div class="description">
+          <a href="https://mureka.ai/" target="_blank">Mureka</a><br>
+          AI music generator focused on creating royalty-free tracks for various uses.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="category">
+    <h2>🎥 Video AI</h2>
+    <ul>
+      <li>
+        <a href="https://app.klingai.com/global/" target="_blank"> <img class="logo" src="https://app.klingai.com/favicon.ico" alt="Kling AI logo">
+        </a>
+        <div class="description">
+          <a href="https://app.klingai.com/global/" target="_blank">Kling AI</a><br>
+          High-quality generative video known for realistic physics and high resolution.
+        </div>
+      </li>
+      <li>
+         <a href="https://www.heygen.com/" target="_blank"> <img class="logo" src="https://www.heygen.com/favicon.ico" alt="HeyGen logo">
+         </a>
+        <div class="description">
+          <a href="https://www.heygen.com/" target="_blank">HeyGen</a><br>
+          AI platform for creating realistic talking avatars and videos from text.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.hedra.com/" target="_blank"> <img class="logo" src="https://i.imgur.com/sz8DheC.png" alt="Hedra logo">
+        </a>
+        <div class="description">
+          <a href="https://www.hedra.com/" target="_blank">Hedra</a><br>
+          AI tool for generating videos and 3D objects from text and images.
+        </div>
+      </li>
+      <li>
+        <a href="https://runwayml.com" target="_blank"> <img class="logo" src="https://i.imgur.com/EW5c3nQ.png" alt="Runway ML logo">
+        </a>
+        <div class="description">
+          <a href="https://runwayml.com" target="_blank">Runway ML</a><br>
+          Video editing with Gen‑2 AI text‑to‑video, scene tracking, and inpainting.
+        </div>
+      </li>
+       <li>
+         <a href="https://pika.art" target="_blank"> <img class="logo" src="https://pika.art/favicon.ico" alt="Pika logo">
+         </a>
+        <div class="description">
+          <a href="https://pika.art" target="_blank">Pika Labs</a><br>
+          Generate videos from text, images, or sketches with cinematic quality.
+        </div>
+      </li>
+       <li>
+         <a href="https://digen.ai/" target="_blank"> <img class="logo" src="https://i.imgur.com/OTjO0D0.png" alt="Digen logo">
+         </a>
+        <div class="description">
+          <a href="https://digen.ai/" target="_blank">Digen AI</a><br>
+          AI platform for creating generative videos and animations with advanced controls.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="category">
+    <h2>✨ Unlimited Free</h2>
+    <ul>
+      <li>
+        <a href="https://raphael.app/" target="_blank">
+          <img class="logo" src="https://raphael.app/favicon.ico" alt="Raphael logo">
+        </a>
+        <div class="description">
+          <a href="https://raphael.app/" target="_blank">Raphael</a><br>
+          AI-powered vector graphic editor offering a generous free tier for creative design.
+        </div>
+      </li>
+      <li>
+        <a href="https://krea.ai/" target="_blank">
+          <img class="logo" src="https://i.ibb.co/ynh4nC5m/images.jpg" alt="Krea logo"> </a>
+        <div class="description">
+          <a href="https://krea.ai/" target="_blank">Krea</a><br>
+          Real-time AI image generation and enhancement tools, known for powerful free features.
+        </div>
+      </li>
+      <li>
+        <a href="https://glif.app/" target="_blank">
+          <img class="logo" src="https://glif.app/favicon.ico" alt="Glif logo">
+        </a>
+        <div class="description">
+          <a href="https://glif.app/" target="_blank">Glif</a><br>
+          Platform for creating and exploring AI characters and interactive story elements, with a focus on free access.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.vheer.com/" target="_blank">
+          <img class="logo" src="https://www.vheer.com/favicon.ico" alt="Vheer logo">
+        </a>
+        <div class="description">
+          <a href="https://www.vheer.com/" target="_blank">Vheer</a><br>
+          A comprehensive AI tools platform offering writing, coding, image generation, and other creative features, with a focus on accessible free usage.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="category">
+    <h2>📷 AI Editor</h2>
+    <ul>
+      <li>
+        <a href="https://www.capcut.com/" target="_blank">
+          <img class="logo" src="https://i.ibb.co/20gTdyXd/IMG-20250620-222544.png" alt="CapCut logo">
+        </a>
+        <div class="description">
+          <a href="https://www.capcut.com/" target="_blank">CapCut</a><br>
+          Popular video editor with powerful AI features for text-to-video, auto-captions, and effects.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.canva.com" target="_blank">
+          <img class="logo" src="https://www.canva.com/favicon.ico" alt="Canva logo">
+        </a>
+        <div class="description">
+          <a href="https://www.canva.com" target="_blank">Canva AI Tools</a><br>
+          Design platform integrating AI for magic editing, text-to-image, background removal, and more.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.adobe.com" target="_blank"> <img class="logo" src="https://www.adobe.com/favicon.ico" alt="Adobe logo">
+        </a>
+        <div class="description">
+          <a href="https://www.adobe.com" target="_blank">Adobe AI</a><br>
+          AI features integrated across Adobe Creative Cloud (Photoshop, Illustrator) for enhanced editing and generation.
+        </div>
+      </li>
+       <li>
+        <a href="https://clipdrop.co/" target="_blank">
+          <img class="logo" src="https://i.ibb.co/KcF7GJX3/clipdrop.jpg" alt="Clipdrop logo">
+        </a>
+        <div class="description">
+          <a href="https://clipdrop.co/" target="_blank">Clipdrop</a><br>
+          Suite of AI tools for fast and intelligent photo editing, cleanup, relighting, and upscaling.
+        </div>
+      </li>
+      <li>
+        <a href="https://pixelcut.ai/" target="_blank">
+          <img class="logo" src="https://pixelcut.ai/favicon.ico" alt="Pixelcut logo">
+        </a>
+        <div class="description">
+          <a href="https://pixelcut.ai/" target="_blank">Pixelcut</a><br>
+          AI design tool simplifying product photo editing, background removal, and asset creation.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.watermarkremover.io/" target="_blank">
+          <img class="logo" src="https://i.ibb.co/5Xvd7HwL/images-2.png" alt="Watermark Remover.io logo">
+        </a>
+        <div class="description">
+          <a href="https://www.watermarkremover.io/" target="_blank">Watermark Remover.io</a><br>
+          Simple and effective AI tool dedicated to removing watermarks from images.
+        </div>
+      </li>
+      <li>
+        <a href="https://express.adobe.com/tools/remove-background" target="_blank">
+          <img class="logo" src="https://i.ibb.co/cXcLMVpt/Adobe-Express-logo-RGB-1024px.png" alt="Adobe Express logo">
+        </a>
+        <div class="description">
+          <a href="https://express.adobe.com/tools/remove-background" target="_blank">Adobe Express Remove Background</a><br>
+          AI tool for fast and easy background removal from images, allowing users to make backgrounds transparent or replace them.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="category">
+    <h2>⚙️ All in One</h2>
+    <ul>
+      <li>
+        <a href="https://openart.ai/home" target="_blank"> <img class="logo" src="https://i.imgur.com/REFlHL8.png" alt="OpenArt logo">
+        </a>
+        <div class="description">
+          <a href="https://openart.ai/home" target="_blank">OpenArt</a><br>
+          A comprehensive platform offering various AI image generation and editing tools, models, and resources.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.freepik.com/" target="_blank"> <img class="logo" src="https://www.freepik.com/favicon.ico" alt="Freepik logo">
+        </a>
+        <div class="description">
+          <a href="https://www.freepik.com/" target="_blank">Freepik AI Tools</a><br>
+          Platform with AI tools for design, including image generation, editing, and templates.
+        </div>
+      </li>
+      <li>
+        <a href="https://www.dreamina.com/" target="_blank"> <img class="logo" src="https://i.imgur.com/DdDzh4G.png" alt="Dreamina logo">
+        </a>
+        <div class="description">
+          <a href="https://www.dreamina.com/" target="_blank">Dreamina</a><br>
+          AI image generator focusing on creative and artistic styles with simple text prompts.
+        </div>
+      </li>
+      <li>
+        <a href="https://pollo.ai/" target="_blank"> <img class="logo" src="https://pollo.ai/favicon.ico" alt="Pollo.ai logo">
+        </a>
+        <div class="description">
+          <a href="https://pollo.ai/" target="_blank">Pollo.ai</a><br>
+          Comprehensive AI suite for design, writing, image generation, and various creative tasks.
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</body>
+</html>
